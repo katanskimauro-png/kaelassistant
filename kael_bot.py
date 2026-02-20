@@ -1,4 +1,4 @@
- import os
+import os
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, ContextTypes, filters
 from openai import OpenAI
@@ -48,4 +48,5 @@ app.add_handler(CommandHandler("start", start))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, responder))
 
 print("Kael está en línea...")
+
 app.run_polling()
