@@ -49,11 +49,11 @@ app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, responder))
 
 print("Kael está en línea...")
 
-app.run_webhook(
-    listen="0.0.0.0",
-    port = int(os.environ.get("PORT", 8000))
-    webhook_url=f"https://{os.environ.get('RAILWAY_PULIC_DOMAIN')}/webhook",
-    webhook_path="/webhook",
-)
+if__name__== "__main__":
+   import os
+   app.run(
+       host="0.0.0.0",
+       port=int(os.environ.get("PORT", 8000))
+
 
 
