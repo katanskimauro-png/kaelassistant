@@ -18,18 +18,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("Hola Mauro 👋 Soy Kael. Estoy listo para ayudarte.")
 
 async def responder(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    if update.effective_user.id != OWNER_ID:
-        return
-
     user_message = update.message.text
-
-    if user_message.lower().startswith("/buscar"):
-        query = user_message.replace("/buscar", "").strip()
-        url = f"https://api.duckduckgo.com/?q={query}&format=json"
-        response = requests.get(url).json()
-        result = response.get("Abstract", "No encontré información clara.")
-        await update.message.reply_text(result)
-        return
 
     response = client.chat.completions.create(
         model="gpt-4o-mini",
@@ -55,6 +44,7 @@ if__name__== "__main__":
        host="0.0.0.0",
        port=int(os.environ.get("PORT", 8000))
     )
+
 
 
 
