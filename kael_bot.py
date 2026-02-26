@@ -39,11 +39,9 @@ app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, responder))
 print("Kael está en línea...")
 
 if __name__ == "__main__":
-   import os
-   app.run(
-       host="0.0.0.0",
-       port=int(os.environ.get("PORT", 8000))
-    )
+    print("Kael esta en linea...")
+    app.run_polling()
+
 
 
 
